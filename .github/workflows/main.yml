@@ -27,6 +27,15 @@ jobs:
     runs-on: ubuntu-latest
     needs: [CI]
     steps: 
+    - name: Instalar doctl
+      uses: digitalocean/action-doctl@v2
+      with:
+        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+    - name: Gerar kubeconfig com token embutido
+      run: |
+        doctl kubernetes cluster kubeconfig show <NOME_DO_SEU_CLUSTER> > kubeconfig.yaml
+        echo "KUBECONFIG_CONTENT=$(base64 -w0 kubeconfig.yaml)" >> $GITHUB_ENV
     - name: Obtendo o código
       uses: actions/checkout@v4.1.5
     - name: Configuração de contexto do Kubernetes
