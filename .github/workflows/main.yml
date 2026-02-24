@@ -34,7 +34,7 @@ jobs:
 
     - name: Gerar kubeconfig com token embutido
       run: |
-        doctl kubernetes cluster kubeconfig show <NOME_DO_SEU_CLUSTER> > kubeconfig.yaml
+        doctl kubernetes cluster kubeconfig show k8s-aula > kubeconfig.yaml
         echo "KUBECONFIG_CONTENT=$(base64 -w0 kubeconfig.yaml)" >> $GITHUB_ENV
     - name: Obtendo o código
       uses: actions/checkout@v4.1.5
