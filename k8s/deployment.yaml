@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: btow2/primeira-pipeline-cicd
+        image: btow2/primeira-pipeline-cicd:latest
         ports:
         - containerPort: 5000
 --- 
