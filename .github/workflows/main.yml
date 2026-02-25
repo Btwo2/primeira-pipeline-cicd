@@ -28,5 +28,5 @@ jobs:
     uses: btwo2/primeira-pipeline-cicd/.github/workflows/deploy.yaml@main
     with:
       manifests: k8s/deployment.yaml
-      image: btwo2/aula-primeira-pipeline:v${{ github.run_number }}
+      images: btwo2/aula-primeira-pipeline:v${{ github.run_number }}
     secrets: inherit
